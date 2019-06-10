@@ -17,9 +17,6 @@ public class MenuManager : MonoBehaviour
     #region Customisation
     [Header("Customisation")]
     public Customisation custom;
-    /*
-    public int _selectedIndex;
-    public string[] _selectedClass;*/
 
     #region Classes
     [Header("Character Class Attributes")]
@@ -35,28 +32,6 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #endregion
-
-    private void Start()
-    {
-        /*
-        // Referencing to customisation script
-        _selectedIndex = custom.selectedIndex;
-        _selectedClass = custom.selectedClass;*/
-
-        custom.ChooseClass(custom.selectedIndex);
-        className.text = custom.selectedClass[custom.selectedIndex].ToString();
-
-        #region Showing stats' scores
-
-        health.text = custom.stats[0].ToString(); // Applying string to text for Health
-        mana.text = custom.stats[1].ToString(); // Applying string to text for Mana
-        stamina.text = custom.stats[2].ToString(); // Applying string to text for Stamina
-        intelligence.text = custom.stats[3].ToString(); // Applying string to text for Intelligence
-        charisma.text = custom.stats[4].ToString(); // Applying string to text for Charisma
-        strength.text = custom.stats[5].ToString(); // Applying string to text for Strength
-
-        #endregion
-    }
 
     #region Menu Button
 
@@ -204,9 +179,50 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Change Class
+
+    #region Next Class
     public void ClassNext()
     {
+        custom.selectedIndex++;
+        if(custom.selectedIndex > custom.selectedClass.Length - 1)
+        {
+            custom.selectedIndex = 0;
+        }
+        custom.ChooseClass(custom.selectedIndex);
+        className.text = custom.selectedClass[custom.selectedIndex];
 
+        ChangingStats();
+    }
+    #endregion
+
+    #region ClassBack
+    public void ClassBack()
+    {
+        custom.selectedIndex--;
+        if(custom.selectedIndex < 0)
+        {
+            custom.selectedIndex = custom.selectedClass.Length - 1;
+        }
+        custom.ChooseClass(custom.selectedIndex);
+
+        ChangingStats();
+
+    }
+    #endregion
+
+    #endregion
+
+    #region Showing Stats' Score
+    void ChangingStats()
+    {
+        className.text = custom.selectedClass[custom.selectedIndex];
+
+        health.text = custom.stats[0].ToString(); // Applying string to text for Health
+        mana.text = custom.stats[1].ToString(); // Applying string to text for Mana
+        stamina.text = custom.stats[2].ToString(); // Applying string to text for Stamina
+        intelligence.text = custom.stats[3].ToString(); // Applying string to text for Intelligence
+        charisma.text = custom.stats[4].ToString(); // Applying string to text for Charisma
+        strength.text = custom.stats[5].ToString(); // Applying string to text for Strength
     }
     #endregion
 }

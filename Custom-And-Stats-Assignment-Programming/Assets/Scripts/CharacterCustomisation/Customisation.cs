@@ -135,9 +135,6 @@ public class Customisation : MonoBehaviour
 
         #endregion
 
-        //connect and find the SkinnedMeshRenderer thats in the scene to the variable we made for Renderer
-        character = GameObject.Find("Mesh").GetComponent<SkinnedMeshRenderer>();
-
         #region Default Textures
         SetTexture("Skin", 0);
         SetTexture("Eyes", 0);
