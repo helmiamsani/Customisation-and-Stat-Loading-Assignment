@@ -38,7 +38,6 @@ public class Customisation : MonoBehaviour
     public string characterName = "Holly Molly";
 
     [Header("Stats")]
-
     #region Stats
     public string[] statArray = new string[6]; // Store all names of Physical and Personality Attributes
     public int[] tempStats = new int[6]; // Helping computer to change stats and statArray
@@ -48,7 +47,7 @@ public class Customisation : MonoBehaviour
 
     #region Character Class
     public CharacterClass charClass;
-    public string[] selectedClass = new string[8];
+    public string[] selectedClass = new string[5];
     public int selectedIndex = 0;
     #endregion
 

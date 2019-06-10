@@ -2098,11 +2098,12 @@ MonoBehaviour:
   panelMax: 2
   custom: {fileID: 717102737}
   className: {fileID: 1747613993}
-  health: {fileID: 0}
-  stamina: {fileID: 0}
-  intelligence: {fileID: 0}
-  charisma: {fileID: 0}
-  strength: {fileID: 0}
+  health: {fileID: 1322074141}
+  mana: {fileID: 971351516}
+  stamina: {fileID: 1769663403}
+  intelligence: {fileID: 2122044019}
+  charisma: {fileID: 1698914238}
+  strength: {fileID: 664460278}
 --- !u!1 &516350610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,7 +3182,7 @@ MonoBehaviour:
   - 
   - 
   tempStats: 0000000000000000000000000000000000000000
-  stats: 0000000000000000000000000000000000000000
+  stats: 000000000000000000000000000000000000000000000000
   points: 30
   charClass: 0
   selectedClass:
@@ -5704,7 +5705,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Barbarian
+  m_Text: Uyee
 --- !u!222 &1747613994
 CanvasRenderer:
   m_ObjectHideFlags: 0

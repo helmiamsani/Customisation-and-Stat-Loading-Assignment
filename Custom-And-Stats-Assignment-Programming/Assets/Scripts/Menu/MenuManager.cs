@@ -17,12 +17,19 @@ public class MenuManager : MonoBehaviour
     #region Customisation
     [Header("Customisation")]
     public Customisation custom;
-    private int _selectedIndex;
-    private string[] _selectedClass;
+    /*
+    public int _selectedIndex;
+    public string[] _selectedClass;*/
 
     #region Classes
     [Header("Character Class Attributes")]
-    public Text className, health, stamina, intelligence, charisma, strength;
+    public Text className;
+    public Text health;
+    public Text mana;
+    public Text stamina;
+    public Text intelligence;
+    public Text charisma;
+    public Text strength;
     #endregion
 
     #endregion
@@ -31,10 +38,24 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        /*
+        // Referencing to customisation script
         _selectedIndex = custom.selectedIndex;
-        _selectedClass = custom.selectedClass;
+        _selectedClass = custom.selectedClass;*/
 
-        custom.ChooseClass(_selectedIndex);
+        custom.ChooseClass(custom.selectedIndex);
+        className.text = custom.selectedClass[custom.selectedIndex].ToString();
+
+        #region Showing stats' scores
+
+        health.text = custom.stats[0].ToString(); // Applying string to text for Health
+        mana.text = custom.stats[1].ToString(); // Applying string to text for Mana
+        stamina.text = custom.stats[2].ToString(); // Applying string to text for Stamina
+        intelligence.text = custom.stats[3].ToString(); // Applying string to text for Intelligence
+        charisma.text = custom.stats[4].ToString(); // Applying string to text for Charisma
+        strength.text = custom.stats[5].ToString(); // Applying string to text for Strength
+
+        #endregion
     }
 
     #region Menu Button
@@ -183,5 +204,9 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Change Class
+    public void ClassNext()
+    {
+
+    }
     #endregion
 }
