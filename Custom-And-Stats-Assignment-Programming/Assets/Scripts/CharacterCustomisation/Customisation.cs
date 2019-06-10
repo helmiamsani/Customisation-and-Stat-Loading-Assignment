@@ -39,11 +39,10 @@ public class Customisation : MonoBehaviour
 
     [Header("Stats")]
 
-    #region Character Race
-    public CharacterRace charRace; // Race of the character
-    public string[] statArray = new string[5]; // Store all names of Physical and Personality Attributes
-    public int[] tempStats = new int[5]; // Helping computer to change stats and statArray
-    public int[] stats = new int[5];// Store the value of Physical and Personality Attributes 
+    #region Stats
+    public string[] statArray = new string[6]; // Store all names of Physical and Personality Attributes
+    public int[] tempStats = new int[6]; // Helping computer to change stats and statArray
+    public int[] stats = new int[6];// Store the value of Physical and Personality Attributes 
     public int points = 30; // Points to use for the stats
     #endregion
 
@@ -63,10 +62,12 @@ public class Customisation : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // Mouse cursor does not constrain at all
         Cursor.visible = true; // Mouse cursor is visible
 
-        statArray = new string[] {"Strength", "Dexterity", "Wisdom", "Intelligence", "Charisma" };
+        statArray = new string[] {"Health", "Mana", "Stamina", "Intelligence", "Charisma", "Strength" };
+        selectedClass = new string[] { "Barbarian", "Bard", "Monk", "Paladin", "Ranger"};
+
 
         #region Pulling Texture from the Assets
-        
+
         #region Skin Textures
         //for loop, looping from 0 to less than the max amount of skin textures needed
         for (int i = 0; i < skinMax; i++)
@@ -146,16 +147,13 @@ public class Customisation : MonoBehaviour
         SetTexture("Clothes", 0);
         SetTexture("Armour", 0);
         #endregion
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        ChooseClass(selectedIndex);
     }
 
     #region SetTexture
     // A function for setting up character textures
-    void SetTexture(string type, int dir) // type (string): type (skin, eyes, armour, clothes, etc) of features that are going to be chosen, dir (int): which number of features are going to be chosen.
+    public void SetTexture(string type, int dir) // type (string): type (skin, eyes, armour, clothes, etc) of features that are going to be chosen, dir (int): which number of features are going to be chosen.
     {
         int index = 0, max = 0, matIndex = 0; // Ints of index numbers, max numbers, material index
         Texture2D[] textures = new Texture2D[0]; // Texture2D array of textures
@@ -332,30 +330,72 @@ public class Customisation : MonoBehaviour
     }
     #endregion
 
-    #region Enums
-    public enum CharacterRace
+    #region Choose Class
+    public void ChooseClass(int className)
     {
-        Dragonborn,
-        Dwarf,
-        Elf,
-        Gnome,
-        Half_Elf,
-        Half_Orc,
-        Halfling,
-        Human,
-        Tiefling
-    }
+        switch (className)
+        {
+            case 0:
+                stats[0] = 15; // Health
+                stats[1] = 10; // Mana
+                stats[2] = 10; // Stamina
+                stats[3] = 10; // Intelligence
+                stats[4] = 10; // Charisma
+                stats[5] = 5;  // Strength
+                charClass = CharacterClass.Barbarian;
+                break;
 
+            case 1:
+                stats[0] = 5; // Strength
+                stats[1] = 10; // Dexternity
+                stats[2] = 10; // Constitution
+                stats[3] = 10; // Wisdom
+                stats[4] = 10; // Intelligence
+                stats[5] = 15; // Charisma
+                charClass = CharacterClass.Bard;
+                break;
+
+            case 2:
+                stats[0] = 5; // Strength
+                stats[1] = 15; // Dexternity
+                stats[2] = 15; // Constitution
+                stats[3] = 10; // Wisdom
+                stats[4] = 10; // Intelligence
+                stats[5] = 5; // Charisma
+                charClass = CharacterClass.Monk;
+                break;
+
+            case 3:
+                stats[0] = 15; // Strength
+                stats[1] = 10; // Dexternity
+                stats[2] = 15; // Constitution
+                stats[3] = 5; // Wisdom
+                stats[4] = 5; // Intelligence
+                stats[5] = 10; // Charisma
+                charClass = CharacterClass.Paladin;
+                break;
+
+            case 4:
+                stats[0] = 5; // Strength
+                stats[1] = 15; // Dexternity
+                stats[2] = 10; // Constitution
+                stats[3] = 15; // Wisdom
+                stats[4] = 10; // Intelligence
+                stats[5] = 5; // Charisma
+                charClass = CharacterClass.Ranger;
+                break;
+        }
+    }
+    #endregion
+
+    #region Enums
     public enum CharacterClass
     {
         Barbarian,
         Bard,
-        Druid,
         Monk,
         Paladin,
-        Ranger,
-        Sorcerer,
-        Warlock
+        Ranger
     }
     #endregion
 }
