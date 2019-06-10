@@ -332,52 +332,52 @@ public class Customisation : MonoBehaviour
         switch (className)
         {
             case 0:
-                stats[0] = 15; // Health
-                stats[1] = 10; // Mana
-                stats[2] = 10; // Stamina
-                stats[3] = 10; // Intelligence
-                stats[4] = 10; // Charisma
-                stats[5] = 5;  // Strength
+                stats[0] = 120; // Health
+                stats[1] = 40; // Mana
+                stats[2] = 140; // Stamina
+                stats[3] = 60; // Intelligence
+                stats[4] = 30; // Charisma
+                stats[5] = 160;  // Strength
                 charClass = CharacterClass.Barbarian;
                 break;
 
             case 1:
-                stats[0] = 5; // Strength
-                stats[1] = 10; // Dexternity
-                stats[2] = 10; // Constitution
-                stats[3] = 10; // Wisdom
-                stats[4] = 10; // Intelligence
-                stats[5] = 15; // Charisma
+                stats[0] = 80; // Health
+                stats[1] = 150; // Mana
+                stats[2] = 80; // Stamina
+                stats[3] = 160; // Intelligence
+                stats[4] = 150; // Charisma
+                stats[5] = 10; // Strength
                 charClass = CharacterClass.Bard;
                 break;
 
             case 2:
-                stats[0] = 5; // Strength
-                stats[1] = 15; // Dexternity
-                stats[2] = 15; // Constitution
-                stats[3] = 10; // Wisdom
-                stats[4] = 10; // Intelligence
-                stats[5] = 5; // Charisma
+                stats[0] = 100; // Health
+                stats[1] = 100; // Mana
+                stats[2] = 100; // Stamina
+                stats[3] = 100; // Intelligence
+                stats[4] = 100; // Charisma
+                stats[5] = 10; // Strength
                 charClass = CharacterClass.Monk;
                 break;
 
             case 3:
-                stats[0] = 15; // Strength
-                stats[1] = 10; // Dexternity
-                stats[2] = 15; // Constitution
-                stats[3] = 5; // Wisdom
-                stats[4] = 5; // Intelligence
-                stats[5] = 10; // Charisma
+                stats[0] = 160; // Health
+                stats[1] = 120; // Mana
+                stats[2] = 70; // Stamina
+                stats[3] = 170; // Intelligence
+                stats[4] = 100; // Charisma
+                stats[5] = 150; // Strength
                 charClass = CharacterClass.Paladin;
                 break;
 
             case 4:
-                stats[0] = 5; // Strength
-                stats[1] = 15; // Dexternity
-                stats[2] = 10; // Constitution
-                stats[3] = 15; // Wisdom
-                stats[4] = 10; // Intelligence
-                stats[5] = 5; // Charisma
+                stats[0] = 90; // Health
+                stats[1] = 80; // Mana
+                stats[2] = 200; // Stamina
+                stats[3] = 180; // Intelligence
+                stats[4] = 200; // Charisma
+                stats[5] = 30; // Strength
                 charClass = CharacterClass.Ranger;
                 break;
         }
