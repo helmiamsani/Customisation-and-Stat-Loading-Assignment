@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Customisation : MonoBehaviour
@@ -52,7 +53,6 @@ public class Customisation : MonoBehaviour
     #endregion
 
     #endregion
-
     #endregion
 
     // Start is called before the first frame update
@@ -331,6 +331,7 @@ public class Customisation : MonoBehaviour
     {
         switch (className)
         {
+            #region Barbarian
             case 0:
                 stats[0] = 120; // Health
                 stats[1] = 40; // Mana
@@ -340,7 +341,9 @@ public class Customisation : MonoBehaviour
                 stats[5] = 160;  // Strength
                 charClass = CharacterClass.Barbarian;
                 break;
+            #endregion
 
+            #region Bard
             case 1:
                 stats[0] = 80; // Health
                 stats[1] = 150; // Mana
@@ -350,7 +353,9 @@ public class Customisation : MonoBehaviour
                 stats[5] = 10; // Strength
                 charClass = CharacterClass.Bard;
                 break;
+            #endregion
 
+            #region Monk
             case 2:
                 stats[0] = 100; // Health
                 stats[1] = 100; // Mana
@@ -360,7 +365,9 @@ public class Customisation : MonoBehaviour
                 stats[5] = 10; // Strength
                 charClass = CharacterClass.Monk;
                 break;
+            #endregion
 
+            #region Paladin
             case 3:
                 stats[0] = 160; // Health
                 stats[1] = 120; // Mana
@@ -370,7 +377,9 @@ public class Customisation : MonoBehaviour
                 stats[5] = 150; // Strength
                 charClass = CharacterClass.Paladin;
                 break;
+            #endregion
 
+            #region Ranger
             case 4:
                 stats[0] = 90; // Health
                 stats[1] = 80; // Mana
@@ -380,7 +389,16 @@ public class Customisation : MonoBehaviour
                 stats[5] = 30; // Strength
                 charClass = CharacterClass.Ranger;
                 break;
+            #endregion
         }
+    }
+    #endregion
+
+    #region Save
+    void Save()
+    {
+        SaveCustomisation.SavePlayerCustomisation(this);
+        Debug.Log("Saved");
     }
     #endregion
 

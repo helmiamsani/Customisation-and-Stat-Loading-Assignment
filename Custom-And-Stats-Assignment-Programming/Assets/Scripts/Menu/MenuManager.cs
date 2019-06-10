@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -60,7 +61,7 @@ public class MenuManager : MonoBehaviour
     #region Play Button
     public void PlayButton()
     {
-
+        SceneManager.LoadScene("The Game");
     }
     #endregion
 
