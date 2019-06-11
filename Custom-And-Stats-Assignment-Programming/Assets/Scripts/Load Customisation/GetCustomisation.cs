@@ -75,6 +75,7 @@ public class GetCustomisation : MonoBehaviour
         //inside a switch statement that is swapped by the string name of our material
         switch (type)
         {
+            #region Skin
             //case skin      
             case "Skin":
                 //textures is our Resource.Load Character Skin save index we loaded in set as our Texture2D
@@ -82,6 +83,7 @@ public class GetCustomisation : MonoBehaviour
                 //material index element number is 1
                 matIndex = 1;
                 break;
+            #endregion
 
             case "Hair":
                 //textures is our Resource.Load Character Hair save index we loaded in set as our Texture2D

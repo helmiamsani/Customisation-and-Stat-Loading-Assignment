@@ -9,8 +9,6 @@ public class SavedDataCustomisation
 
     public string charName;
 
-
-
     public SavedDataCustomisation(Customisation custom)
     {
         skin = custom.skinIndex;
