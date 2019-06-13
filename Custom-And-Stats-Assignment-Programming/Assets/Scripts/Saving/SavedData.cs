@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SavedDataCustomisation
+public class SavedData
 {
     public int skin, hair, mouth, eyes, armour, clothes;
 
     public string charName;
 
-    public SavedDataCustomisation(Customisation custom)
+    public SavedData(Customisation custom)
     {
         skin = custom.skinIndex;
         hair = custom.hairIndex;
@@ -18,6 +18,6 @@ public class SavedDataCustomisation
         armour = custom.armourIndex;
         clothes = custom.clothesIndex;
 
-        charName = custom.characterName;
+        //charName = custom.characterName;
     }
 }

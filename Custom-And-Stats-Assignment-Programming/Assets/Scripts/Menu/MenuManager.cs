@@ -32,6 +32,13 @@ public class MenuManager : MonoBehaviour
 
     #endregion
 
+    #region Character Name
+    [Header("Character Name")]
+    //name of our character that the user is making
+    public string characterName;
+    public InputField inputFieldName;
+    public Text nameField;
+    #endregion
     #endregion
 
     #region Menu Button
@@ -44,6 +51,15 @@ public class MenuManager : MonoBehaviour
         panelIndex++; // increase the panelIndex 
         _nextPanel = panels[panelIndex]; // Next Panel stores the next panels (eg. panels[1])
         _nextPanel.SetActive(true); // Next panel is set to on
+
+        // If there is name
+        if(inputFieldName != null)
+        {
+            characterName = inputFieldName.text; // character name stores the input field
+            nameField.text = characterName; // name field then stores the current name
+        }
+
+        custom.StartAfterNext(); // call this function
     }
     #endregion
 
@@ -61,6 +77,7 @@ public class MenuManager : MonoBehaviour
     #region Play Button
     public void PlayButton()
     {
+        custom.Save();
         SceneManager.LoadScene("The Game");
     }
     #endregion

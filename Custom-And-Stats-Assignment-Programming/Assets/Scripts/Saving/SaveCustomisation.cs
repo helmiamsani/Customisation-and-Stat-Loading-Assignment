@@ -16,7 +16,7 @@ public static class SaveCustomisation
         FileStream stream = new FileStream(path, FileMode.Create);
 
         // dataToSave with player info
-        SavedDataCustomisation data = new SavedDataCustomisation(custom);
+        SavedData data = new SavedData(custom);
 
         // format and serialize location and data 
         formatter.Serialize(stream, data);
@@ -25,7 +25,7 @@ public static class SaveCustomisation
         stream.Close();
     }
 
-    public static SavedDataCustomisation LoadPlayerData()
+    public static SavedData LoadPlayerData()
     {
         // File is existed
         string path = Application.persistentDataPath + "/Save.jpg";
@@ -34,7 +34,7 @@ public static class SaveCustomisation
             // reference to binary formatter (this changing the code into binary language)
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            SavedDataCustomisation data = formatter.Deserialize(stream) as SavedDataCustomisation;
+            SavedData data = formatter.Deserialize(stream) as SavedData;
             stream.Close();
             return data;
 

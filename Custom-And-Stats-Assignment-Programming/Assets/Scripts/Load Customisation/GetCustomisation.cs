@@ -12,9 +12,9 @@ public class GetCustomisation : MonoBehaviour
 
     [Header("Loaded File")]
     public int skin, hair, mouth, eyes, armour, clothes;
-    public string charName;
+    //public string charName;
 
-    private Customisation customSet;
+    private Customisation custom;
 
     #region Start
     private void Start()
@@ -24,6 +24,8 @@ public class GetCustomisation : MonoBehaviour
 
         //Run the function LoadTexture	
         LoadTexture();
+
+        Debug.Log("Texture is Loaded");
     }
     #endregion
 
@@ -32,9 +34,10 @@ public class GetCustomisation : MonoBehaviour
     {
         //check to see if our save file for this character
         string path = Application.persistentDataPath + "/Save.jpg";
+
         if (File.Exists(path))
         {
-            SavedDataCustomisation data = SaveCustomisation.LoadPlayerData();
+            SavedData data = SaveCustomisation.LoadPlayerData();
             SetTexture("Skin", data.skin);
             skin = data.skin;
             SetTexture("Hair", data.hair);
@@ -47,24 +50,22 @@ public class GetCustomisation : MonoBehaviour
             armour = data.armour;
             SetTexture("Clothes", data.clothes);
             clothes = data.clothes;
-            charName = data.charName;
+            //charName = data.charName;
         }
 
         else
         {
-            SetTexture("Skin", customSet.skinIndex = 0);
-            SetTexture("Hair", customSet.hairIndex = 0);
-            SetTexture("Mouth", customSet.mouthIndex = 0);
-            SetTexture("Eyes", customSet.eyesIndex = 0);
-            SetTexture("Clothes", customSet.clothesIndex = 0);
-            SetTexture("Armour", customSet.armourIndex = 0);
+            SetTexture("Skin", custom.skinIndex = 0);
+            SetTexture("Hair", custom.hairIndex = 0);
+            SetTexture("Mouth", custom.mouthIndex = 0);
+            SetTexture("Eyes", custom.eyesIndex = 0);
+            SetTexture("Clothes", custom.clothesIndex = 0);
+            SetTexture("Armour", custom.armourIndex = 0);
         }
     }
     #endregion
 
     #region SetTexture
-
-    //Create a function that is called SetTexture it should contain a string and int
     //the string is the name of the material we are editing, the int is the direction we are changing
     void SetTexture(string type, int index)
     {
@@ -85,40 +86,50 @@ public class GetCustomisation : MonoBehaviour
                 break;
             #endregion
 
+            #region Eyes    
+            case "Eyes":
+                //textures is our Resource.Load Character Eyes save index we loaded in set as our Texture2D
+                tex = Resources.Load("Character/Eyes_" + index) as Texture2D;
+                //material index element number is 4
+                matIndex = 2;
+                break;
+            #endregion
+
+            #region Mouth
+            case "Mouth":
+                //textures is our Resource.Load Character Mouth save index we loaded in set as our Texture2D
+                tex = Resources.Load("Character/Mouth_" + index) as Texture2D;
+                //material index element number is 3
+                matIndex = 3;
+                break;
+            #endregion
+
+            #region Hair
             case "Hair":
                 //textures is our Resource.Load Character Hair save index we loaded in set as our Texture2D
                 tex = Resources.Load("Character/Hair_" + index) as Texture2D;
                 //material index element number is 2
                 matIndex = 4;
                 break;
+            #endregion
 
-            case "Mouth":
-                //textures is our Resource.Load Character Mouth save index we loaded in set as our Texture2D
-                tex = Resources.Load("Character/Mouth_" + index) as Texture2D;
-                //material index element number is 3
-                matIndex = 2;
-                break;
-
-            case "Eyes":
-                //textures is our Resource.Load Character Eyes save index we loaded in set as our Texture2D
-                tex = Resources.Load("Character/Eyes_" + index) as Texture2D;
-                //material index element number is 4
-                matIndex = 3;
-                break;
-
+            #region Clothes
             case "Clothes":
                 //textures is our Resource.Load Character Clothes save index we loaded in set as our Texture2D
                 tex = Resources.Load("Character/Clothes_" + index) as Texture2D;
                 //material index element number is 5
                 matIndex = 5;
                 break;
+            #endregion
 
+            #region Armour
             case "Armour":
                 //textures is our Resource.Load Character Armour save index we loaded in set as our Texture2D
                 tex = Resources.Load("Character/Armour_" + index) as Texture2D;
                 //material index element number is 6
                 matIndex = 6;
                 break;
+            #endregion
         }
 
         //Material array is equal to our characters material list

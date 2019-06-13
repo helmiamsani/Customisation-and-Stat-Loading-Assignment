@@ -35,8 +35,7 @@ public class Customisation : MonoBehaviour
 
     #region General Char Customisation
     [Header("Character Name")]
-    //name of our character that the user is making
-    public string characterName = "Holly Molly";
+    public string charName;
 
     [Header("Stats")]
     #region Stats
@@ -53,17 +52,25 @@ public class Customisation : MonoBehaviour
     #endregion
 
     #endregion
+
+    #region References
+    [Header("References")]
+    public MenuManager menManager;
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    #endregion
+
+    #region Start
+    public void StartAfterNext()
     {
+
         Cursor.lockState = CursorLockMode.None; // Mouse cursor does not constrain at all
         Cursor.visible = true; // Mouse cursor is visible
 
-        statArray = new string[] {"Health", "Mana", "Stamina", "Intelligence", "Charisma", "Strength" };
-        selectedClass = new string[] { "Barbarian", "Bard", "Monk", "Paladin", "Ranger"};
+        statArray = new string[] { "Health", "Mana", "Stamina", "Intelligence", "Charisma", "Strength" };
+        selectedClass = new string[] { "Barbarian", "Bard", "Monk", "Paladin", "Ranger" };
 
+        charName = menManager.nameField.text; // showing name in inspector
 
         #region Pulling Texture from the Assets
 
@@ -146,6 +153,7 @@ public class Customisation : MonoBehaviour
 
         ChooseClass(selectedIndex);
     }
+    #endregion
 
     #region SetTexture
     // A function for setting up character textures
@@ -395,7 +403,7 @@ public class Customisation : MonoBehaviour
     #endregion
 
     #region Save
-    void Save()
+    public void Save()
     {
         SaveCustomisation.SavePlayerCustomisation(this);
         Debug.Log("Saved");
