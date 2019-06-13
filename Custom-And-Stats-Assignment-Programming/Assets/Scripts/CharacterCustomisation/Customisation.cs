@@ -41,8 +41,7 @@ public class Customisation : MonoBehaviour
     #region Stats
     public string[] statArray = new string[6]; // Store all names of Physical and Personality Attributes
     public int[] tempStats = new int[6]; // Helping computer to change stats and statArray
-    public int[] stats = new int[6];// Store the value of Physical and Personality Attributes 
-    public int points = 30; // Points to use for the stats
+    public int[] stats = new int[6];// Store the value of Physical and Personality Attributes
     #endregion
 
     #region Character Class

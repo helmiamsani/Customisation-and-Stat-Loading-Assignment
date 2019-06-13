@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 //you will need to change Scenes
 public class GetCustomisation : MonoBehaviour
@@ -11,8 +12,20 @@ public class GetCustomisation : MonoBehaviour
     public Renderer character;
 
     [Header("Loaded File")]
-    public int skin, hair, mouth, eyes, armour, clothes;
-    //public string charName;
+    public int skin;
+    public int hair;
+    public int mouth;
+    public int eyes;
+    public int armour;
+    public int clothes;
+
+    public Text healthText;
+    public Text manaText;
+    public Text classText;
+
+    [Header("Character Name")]
+    public string charName;
+    public Text charText;
 
     private Customisation custom;
 
@@ -40,7 +53,7 @@ public class GetCustomisation : MonoBehaviour
             SavedData data = SaveCustomisation.LoadPlayerData();
             SetTexture("Skin", data.skin);
             skin = data.skin;
-            SetTexture("Hair", data.hair);
+            SetTexture("Hair", data.hair); 
             hair = data.hair;
             SetTexture("Mouth", data.mouth);
             mouth = data.mouth;
@@ -50,7 +63,11 @@ public class GetCustomisation : MonoBehaviour
             armour = data.armour;
             SetTexture("Clothes", data.clothes);
             clothes = data.clothes;
-            //charName = data.charName;
+
+            charText.text = data.charName;
+            healthText.text = data.health;
+            manaText.text = data.mana;
+            classText.text = data.classType;
         }
 
         else
