@@ -233,7 +233,7 @@ public class MenuManager : MonoBehaviour
     #region Showing Stats' Score
     void ChangingStats()
     {
-        className.text = custom.selectedClass[custom.selectedIndex];
+        className.text = custom.selectedClass[custom.selectedIndex]; // Applying class name
 
         health.text = custom.stats[0].ToString(); // Applying string to text for Health
         mana.text = custom.stats[1].ToString(); // Applying string to text for Mana

@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SavedData
 {
+    #region Variables
     public int skin, hair, mouth, eyes, armour, clothes;
 
     public string charName;
@@ -12,7 +13,9 @@ public class SavedData
     public string health;
     public string mana;
     public string classType;
+    #endregion
 
+    #region Save the data
     public SavedData(Customisation custom)
     {
         // Save all player attributes
@@ -29,4 +32,5 @@ public class SavedData
         classType = custom.selectedClass[custom.selectedIndex]; // Save player class
 
     }
+    #endregion
 }

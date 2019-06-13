@@ -6,11 +6,14 @@ using UnityEngine;
 //you will need to change Scenes
 public class GetCustomisation : MonoBehaviour
 {
-
+    #region Variables
+    #region Character
     [Header("Character")]
     //public variable for the Skinned Mesh Renderer which is our character reference
     public Renderer character;
+    #endregion
 
+    #region Loaded File
     [Header("Loaded File")]
     public int skin;
     public int hair;
@@ -22,12 +25,14 @@ public class GetCustomisation : MonoBehaviour
     public Text healthText;
     public Text manaText;
     public Text classText;
+    #endregion
 
     [Header("Character Name")]
     public string charName;
     public Text charText;
 
     private Customisation custom;
+    #endregion
 
     #region Start
     private void Start()
